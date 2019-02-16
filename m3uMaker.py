@@ -17,4 +17,3 @@ for i in range(0,len(songs)):
 		fo.writelines(songs[i] + "\n")
 
 fo.close()
-
