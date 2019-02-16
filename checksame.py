@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*- 
+# ver 1.0.2
 
 import os, codecs
 
@@ -15,10 +16,7 @@ os.chdir(path2)
 songs2 = os.listdir(os.getcwdu())
 print ("Load %d files" % len(songs2))
 
-fo = codecs.open("same.txt", "w", "utf-8")
-
-fo.writelines(path1 + "\n")
-fo.writelines(path2 + "\n\n")
+fo = codecs.open("H:\Developer\Python\A35Helper\same.txt", "w", "utf-8")
 
 #逐个对照，发现重复的就输出
 for i in range(0,len(songs1)):
