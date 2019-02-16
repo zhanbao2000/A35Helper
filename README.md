@@ -14,4 +14,8 @@
  
     对当前文件夹下的所有mp3文件做成一个m3u播放列表
 
+ - rm_list.py
+ 
+    指定一个列表，根据列表删除相应的文件
+    
   [1]: https://github.com/vileer/NeteaseCloudMusicPlaylistCreator
