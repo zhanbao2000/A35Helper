@@ -18,4 +18,9 @@
  
     指定一个列表，根据列表删除相应的文件
     
+ - lrc_rebuild.py
+ 
+    将 [ZonyLrcToolsX][2] 生成的LRC时间轴改为正确的
+    
   [1]: https://github.com/vileer/NeteaseCloudMusicPlaylistCreator
+  [2]: https://github.com/GameBelial/ZonyLrcToolsX
