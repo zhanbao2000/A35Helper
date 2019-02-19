@@ -1,12 +1,11 @@
 #!/usr/bin/python
 # coding:utf-8
-# ver 0.0.10
+# ver 1.1.0
 
 import os, codecs
 
-test_path = u"H:\\Developer\\Python\\A35Helper\\testfile\\Poppin'Party - 走り始めたばかりのキミに.lrc"
-
 def gettime(char):
+#获取歌词行所在时间轴坐标（单位：秒）
 	try:
 		result = int(char[1:3])*60 + float(char[4:9])
 	except:
@@ -15,9 +14,15 @@ def gettime(char):
 
 def rebuild(file_path):
 	fr = codecs.open(file_path, "r", "utf-8")
-	lrcs = [line.strip() for line in fr] 
+	try:
+		#读取歌词行到列表
+		lrcs = [line.strip() for line in fr] 
+	except UnicodeDecodeError :
+		#防止奇奇怪怪的歌名不能被UnicodeDecoder解码，抛错误直接return
+		return
 	fr.close()
 	
+	#列表内部调整
 	i = 0
 	while i < len(lrcs)-1:
 		if gettime(lrcs[i]) > gettime(lrcs[i+1]):
@@ -29,6 +34,7 @@ def rebuild(file_path):
 			continue
 		i += 1
 	
+	#在写文件的同时，pop掉空行
 	fo = codecs.open(file_path, "w", "utf-8")
 	i = 0
 	while i < len(lrcs):
@@ -38,14 +44,14 @@ def rebuild(file_path):
 			continue
 		fo.writelines(lrcs[i] + "\n")
 		i += 1
-		
+
+
 print ("English path ONLY!!")
 lrc_path = raw_input("Please enter LRC path: ")
 os.chdir(lrc_path)
 lrc_files = os.listdir(os.getcwdu())
 
-print lrc_files[0]
-
 for i in range(0, len(lrc_files)):
-	if lrc_files[i][-4:] != ".lrc": continue
+	#确保只对LRC文件进行操作
+	if lrc_files[i][-4:] != ".lrc":continue
 	rebuild(lrc_files[i])
