@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding:utf-8
-# ver 1.1.0
+# ver 1.2.0
 
 import os, codecs
 
@@ -47,8 +47,11 @@ def rebuild(file_path):
 
 
 print ("English path ONLY!!")
-lrc_path = raw_input("Please enter LRC path: ")
-os.chdir(lrc_path)
+lrc_path = raw_input("Please enter LRC path\n(if you are now at working dir then press enter): ")
+if lrc_path == u"":
+	pass
+else:
+	os.chdir(lrc_path)
 lrc_files = os.listdir(os.getcwdu())
 
 for i in range(0, len(lrc_files)):
