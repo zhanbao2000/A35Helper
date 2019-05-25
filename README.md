@@ -33,4 +33,8 @@
  
     若对歌曲使用 [ZonyLrcToolsX](https://github.com/GameBelial/ZonyLrcToolsX) 生成歌词文件，且歌曲同时也有翻译歌词时，原文和翻译的两个时间轴将会同时串在一起。虽然时间轴对歌词的映射并没有问题，但是某些时间在前的歌词却被错误地排到了后面
     <br>这个脚本的作用是，对已生成的歌词文件重写一遍，使时间轴重新排序
-     
+    <br>
+    
+ - checksame_m3u.py (building)
+ 
+    为`*.m3u`播放列表内的歌曲去重
